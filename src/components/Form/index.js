@@ -42,7 +42,7 @@ function Form(props) {
         
         </form>
 
-        <div className="display" style={{fontSize: '4rem'}}>
+        <div className="display">
             {name}
             <p>Dropdown state is: {dropdownState}</p>
         </div>
