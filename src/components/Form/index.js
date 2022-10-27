@@ -8,26 +8,43 @@ function Form(props) {
     */
 
     const [name, setName ] = useState(''); // This is a the state for the input personName
+    const [dropdownState, setDropdownState ] = useState('apple'); // This is a the state for the input personName
+
+    const submitFunction = (e) => {
+        e.preventDefault()
+        console.log('My favourit e fruit is:', dropdownState)
+    }
 
     return (
       <>
 
-        <form action="">
+        <form action="" onSubmit={submitFunction}>
 
-        <label htmlFor="personName">Your name</label>
+            <label htmlFor="personName">Your name</label>
 
-        <input 
-            type="text" 
-            name="personName" 
-            id="personName" 
-            value={name}
-            onChange={(e) => setName(e.target.value)} 
-        />
+            <input 
+                type="text" 
+                name="personName" 
+                id="personName" 
+                value={name}
+                onChange={(e) => setName(e.target.value)} 
+            />
 
+            <div>
+                <select name="dropdown-choices" id="dropdown-choices" value={dropdownState} onChange={(e) => setDropdownState(e.target.value)} >
+                    <option value="apple">Apple</option>
+                    <option value="orange">Orange</option>
+                    <option value="pear">Pear</option>
+                </select>
+            </div>
+
+            <button type="submit">Submit choices</button>
+        
         </form>
 
         <div className="display" style={{fontSize: '4rem'}}>
             {name}
+            <p>Dropdown state is: {dropdownState}</p>
         </div>
 
       </>  
